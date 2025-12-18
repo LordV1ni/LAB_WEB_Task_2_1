@@ -1,0 +1,13 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  {% set errorMessage = message %}
+  {% set statusCode = error.status %}
+
+  <section class="error">
+    <h1>{{ errorMessage }}</h1>
+    <h2>Status: {{ statusCode }}</h2>
+    <pre>{{ error.stack }}</pre>
+  </section>
+{% endblock %}
+

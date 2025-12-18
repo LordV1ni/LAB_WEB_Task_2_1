@@ -1,0 +1,874 @@
+/* 
+    Zweck: Globale Styles für die Terminverwaltungs-Webseite
+    Nutzergruppe: Alle (öffentlich und Anbieter:innen)
+    Funktion: Modernes, minimalistisches Design mit Orange und Lila als Primärfarben
+*/
+
+/* ===== CSS Reset & Basis-Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Primärfarben */
+    --color-orange: #FF6B35;
+    --color-orange-hover: #E55A2B;
+    --color-lila: #6B46C1;
+    --color-lila-hover: #553C9A;
+    
+    /* Sekundärfarben */
+    --color-white: #FFFFFF;
+    --color-light-gray: #F5F5F5;
+    --color-gray: #E5E5E5;
+    --color-dark-gray: #4A4A4A;
+    --color-text: #2D2D2D;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Typografie */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header & Navigation ===== */
+.header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-orange);
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: rgba(107, 70, 193, 0.1);
+    color: var(--color-lila);
+    outline: 2px solid var(--color-lila);
+    outline-offset: 2px;
+}
+
+.nav-link.active {
+    color: var(--color-lila);
+    font-weight: 600;
+    background-color: rgba(107, 70, 193, 0.05);
+}
+
+/* ===== Main Content ===== */
+.main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-dark-gray);
+}
+
+/* ===== Termin-Liste ===== */
+.termin-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* ===== Termin-Karten ===== */
+.termin-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.termin-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.termin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-sm);
+}
+
+.termin-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    flex: 1;
+}
+
+.termin-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: #10B981;
+    color: var(--color-white);
+}
+
+.termin-badge-full {
+    background-color: var(--color-dark-gray);
+}
+
+.termin-card-body {
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.termin-description {
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.termin-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.info-item {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--color-text);
+    min-width: 120px;
+}
+
+.info-value {
+    color: var(--color-dark-gray);
+}
+
+.termin-card-footer {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-gray);
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-family);
+}
+
+.btn-primary {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    width: 100%;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-orange-hover);
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+}
+
+.btn-secondary {
+    background-color: var(--color-lila);
+    color: var(--color-white);
+    width: 100%;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--color-lila-hover);
+    outline: 2px solid var(--color-lila);
+    outline-offset: 2px;
+}
+
+.btn-secondary:disabled {
+    background-color: var(--color-gray);
+    color: var(--color-dark-gray);
+    cursor: not-allowed;
+}
+
+.btn-secondary:disabled:hover {
+    background-color: var(--color-gray);
+}
+
+/* ===== Footer ===== */
+.footer {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-dark-gray);
+    margin-top: auto;
+}
+
+/* ===== Responsive Design (Mobile-First) ===== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-sm);
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+    .main {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .termin-list {
+        grid-template-columns: 1fr;
+    }
+
+    .termin-card-header {
+        flex-direction: column;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .info-label {
+        min-width: auto;
+    }
+
+    .termin-detail {
+        padding: var(--spacing-lg);
+    }
+
+    .termin-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .termin-detail-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .anmeldung-section {
+        padding: var(--spacing-lg);
+    }
+
+    .anmeldung-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .auth-container {
+        padding: var(--spacing-lg);
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .termin-card-footer-actions {
+        flex-direction: column;
+    }
+
+    .termin-card-footer-actions .btn {
+        width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+    .anmeldeliste-section {
+        padding: var(--spacing-lg);
+    }
+
+    .anmeldeliste-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .anmeldeliste-info {
+        flex-direction: column;
+    }
+
+    .anmeldeliste-table {
+        font-size: 0.875rem;
+    }
+
+    .anmeldeliste-table th,
+    .anmeldeliste-table td {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ===== Formular-Fehler & Nachrichten ===== */
+.field-error {
+    display: block;
+    color: #DC2626;
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+    font-weight: 500;
+}
+
+input.error,
+textarea.error {
+    border-color: #DC2626;
+    outline-color: #DC2626;
+}
+
+input.error:focus,
+textarea.error:focus {
+    outline: 2px solid #DC2626;
+    outline-offset: 2px;
+}
+
+.message {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.message-success {
+    background-color: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #10B981;
+}
+
+.message-error {
+    background-color: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #DC2626;
+}
+
+/* ===== Termin-Detailseite ===== */
+.back-link-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: var(--color-lila);
+    background-color: rgba(107, 70, 193, 0.1);
+    outline: 2px solid var(--color-lila);
+    outline-offset: 2px;
+}
+
+.termin-detail {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.termin-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 3px solid var(--color-lila);
+}
+
+.termin-detail-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    flex: 1;
+}
+
+.termin-detail-content {
+    margin-top: var(--spacing-lg);
+}
+
+.termin-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--color-lila);
+    font-size: var(--font-size-base);
+}
+
+.detail-value {
+    color: var(--color-dark-gray);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+.detail-value p {
+    margin: 0;
+}
+
+/* ===== Anmeldeformular ===== */
+.anmeldung-section {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.anmeldung-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-lila);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 3px solid var(--color-lila);
+}
+
+.anmeldung-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+}
+
+.required {
+    color: #DC2626;
+}
+
+.form-input {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+    outline: 2px solid var(--color-lila);
+    outline-offset: 2px;
+    border-color: var(--color-lila);
+    box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--color-dark-gray);
+    opacity: 0.6;
+}
+
+.form-input.error {
+    border-color: #DC2626;
+}
+
+.form-input.error:focus {
+    outline-color: #DC2626;
+}
+
+.form-actions {
+    margin-top: var(--spacing-md);
+}
+
+.termin-unavailable {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* ===== Authentifizierungs-Seiten (Login/Registrierung) ===== */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: var(--spacing-xl) 0;
+}
+
+.auth-container {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.auth-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+    text-align: center;
+}
+
+.auth-subtitle {
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.auth-footer {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-dark-gray);
+}
+
+.auth-link {
+    color: var(--color-lila);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+}
+
+.auth-link:hover,
+.auth-link:focus {
+    color: var(--color-lila-hover);
+    background-color: rgba(107, 70, 193, 0.1);
+    text-decoration: underline;
+    outline: 2px solid var(--color-lila);
+    outline-offset: 2px;
+}
+
+/* ===== Dashboard ===== */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.dashboard-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-lila);
+}
+
+.termin-card-footer-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.termin-card-footer-actions .btn {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* ===== Termin-Erstellen ===== */
+.termin-erstellen-section {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-lila);
+    margin-bottom: var(--spacing-xs);
+}
+
+.section-subtitle {
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-xl);
+}
+
+.termin-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: var(--font-family);
+}
+
+.form-hint {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-dark-gray);
+    margin-top: var(--spacing-xs);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.form-actions .btn {
+    min-width: 150px;
+}
+
+/* ===== Anmeldeliste ===== */
+.anmeldeliste-section {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.anmeldeliste-header {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 3px solid var(--color-lila);
+}
+
+.anmeldeliste-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-lila);
+    margin-bottom: var(--spacing-md);
+}
+
+.anmeldeliste-info {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.anmeldeliste-table-container {
+    overflow-x: auto;
+}
+
+.anmeldeliste-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-lg);
+}
+
+.anmeldeliste-table thead {
+    background-color: rgba(107, 70, 193, 0.1);
+}
+
+.anmeldeliste-table th {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-lila);
+    border-bottom: 2px solid var(--color-lila);
+}
+
+.anmeldeliste-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-gray);
+    color: var(--color-dark-gray);
+}
+
+.anmeldeliste-table tbody tr:hover {
+    background-color: rgba(107, 70, 193, 0.05);
+}
+
+.anmeldeliste-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.empty-state-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.empty-state-text {
+    color: var(--color-dark-gray);
+    font-size: var(--font-size-lg);
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-base);
+    }
+}
+

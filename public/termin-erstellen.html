@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termin erstellen - Terminverwaltung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 
+        Zweck: Seite zum Erstellen eines neuen Termins
+        Nutzergruppe: Anbieter:innen (Login erforderlich)
+        Funktion: Formular zum Anlegen eines neuen Termins
+        Backend-Integration: Sendet später Termin-Daten per POST an /api/termine
+    -->
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/Fuchs_Logo_Börse.png" alt="Logo" class="logo-img">
+                    <span class="logo-text">Terminverwaltung</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="termin-erstellen.html" class="nav-link active">Termin erstellen</a></li>
+                    <li><a href="login.html" class="nav-link">Abmelden</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="back-link-container">
+            <!-- Link zurück zum Dashboard -->
+            <a href="dashboard.html" class="back-link">← Zurück zum Dashboard</a>
+        </div>
+
+        <section class="termin-erstellen-section">
+            <h2 class="section-title">Neuen Termin erstellen</h2>
+            <p class="section-subtitle">Füllen Sie das Formular aus, um einen neuen Termin anzulegen</p>
+
+            <!-- Formular zum Erstellen eines Termins - sendet später Daten per POST an Backend -->
+            <form class="termin-form" id="termin-erstellen-form">
+                <div class="form-group">
+                    <label for="termin-titel" class="form-label">
+                        Titel <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="termin-titel" 
+                        name="titel" 
+                        class="form-input" 
+                        required
+                        placeholder="z.B. Workshop: Webentwicklung Grundlagen"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="termin-beschreibung" class="form-label">
+                        Beschreibung <span class="required">*</span>
+                    </label>
+                    <textarea 
+                        id="termin-beschreibung" 
+                        name="beschreibung" 
+                        class="form-input form-textarea" 
+                        required
+                        rows="5"
+                        placeholder="Beschreiben Sie den Termin ausführlich..."
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="termin-datum" class="form-label">
+                            Datum <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="date" 
+                            id="termin-datum" 
+                            name="datum" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="termin-uhrzeit-von" class="form-label">
+                            Uhrzeit von <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="time" 
+                            id="termin-uhrzeit-von" 
+                            name="uhrzeitVon" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="termin-uhrzeit-bis" class="form-label">
+                            Uhrzeit bis <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="time" 
+                            id="termin-uhrzeit-bis" 
+                            name="uhrzeitBis" 
+                            class="form-input" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="termin-ort" class="form-label">
+                        Ort <span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="termin-ort" 
+                        name="ort" 
+                        class="form-input" 
+                        required
+                        placeholder="z.B. Hörsaal A, Gebäude 1"
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="termin-anmeldefrist" class="form-label">
+                            Anmeldefrist <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="date" 
+                            id="termin-anmeldefrist" 
+                            name="anmeldefrist" 
+                            class="form-input" 
+                            required
+                        >
+                        <small class="form-hint">Bis zu diesem Datum können sich Interessent:innen anmelden</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="termin-max-teilnehmer" class="form-label">
+                            Maximale Teilnehmer:innen
+                        </label>
+                        <input 
+                            type="number" 
+                            id="termin-max-teilnehmer" 
+                            name="maxTeilnehmer" 
+                            class="form-input" 
+                            min="1"
+                            placeholder="Optional"
+                        >
+                        <small class="form-hint">Leer lassen für unbegrenzte Teilnehmer:innen</small>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <!-- Button zum Abbrechen - navigiert zurück zum Dashboard -->
+                    <a href="dashboard.html" class="btn btn-secondary">Abbrechen</a>
+                    <!-- Button zum Erstellen des Termins – speichert Termin in der Datenbank -->
+                    <button type="submit" class="btn btn-primary" id="termin-erstellen-submit">
+                        Termin erstellen
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Terminverwaltung. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="termin-erstellen.js"></script>
+</body>
+</html>
+

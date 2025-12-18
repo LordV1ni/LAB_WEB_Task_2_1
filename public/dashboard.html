@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Terminverwaltung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 
+        Zweck: Dashboard für Anbieter:innen - Übersicht aller erstellten Termine
+        Nutzergruppe: Anbieter:innen (Login erforderlich)
+        Funktion: Zeigt alle Termine des angemeldeten Anbieters an, ermöglicht Navigation zu Details und Anmeldelisten
+        Backend-Integration: Lädt Termine später per GET /api/termine (mit JWT-Token)
+    -->
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="images/Fuchs_Logo_Börse.png" alt="Logo" class="logo-img">
+                    <span class="logo-text">Terminverwaltung</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Startseite</a></li>
+                    <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="termin-erstellen.html" class="nav-link">Termin erstellen</a></li>
+                    <li><a href="login.html" class="nav-link">Abmelden</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="dashboard-header">
+            <h2 class="dashboard-title">Meine Termine</h2>
+            <!-- Button zum Erstellen eines neuen Termins - navigiert zur Termin-Erstellen-Seite -->
+            <a href="termin-erstellen.html" class="btn btn-primary">+ Neuen Termin erstellen</a>
+        </section>
+
+        <!-- Termin-Übersicht wird hier dynamisch geladen -->
+        <section class="termin-list" id="termin-list">
+            <!-- Mock-Daten: Statische Beispiel-Termine des Anbieters -->
+            <!-- Diese werden später per API geladen: GET /api/termine -->
+        </section>
+
+        <!-- Meldung, wenn keine Termine vorhanden sind -->
+        <section class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-state-content">
+                <p class="empty-state-text">Sie haben noch keine Termine erstellt.</p>
+                <!-- Button zum Erstellen des ersten Termins -->
+                <a href="termin-erstellen.html" class="btn btn-primary">Ersten Termin erstellen</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Terminverwaltung. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
