@@ -26,7 +26,6 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Startseite</a></li>
                     <li id="button-login" style="display: none;"><a href="login.html" class="nav-link">Login | Registrieren</a></li>
-                    <li id="button-dashboard"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
                     <li id="button-create"><a href="termin-erstellen.html" class="nav-link">Termin erstellen</a></li>
                     <li id="button-logout"><a href="#" class="nav-link">Abmelden</a></li>
                 </ul>
@@ -38,7 +37,7 @@
     <main class="main">
         <!-- Zurück-Link: Navigation zurück zum Dashboard -->
         <div class="back-link-container">
-            <a href="dashboard.html" class="back-link">← Zurück zum Dashboard</a>
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
         </div>
 
         <!-- Termin-Erstellen-Section: Formular zum Anlegen eines neuen Termins -->
@@ -172,7 +171,7 @@
 
                 <div class="form-actions">
                     <!-- Button zum Abbrechen - navigiert zurück zum Dashboard -->
-                    <a href="dashboard.html" class="btn btn-secondary">Abbrechen</a>
+                    <a href="index.html" class="btn btn-secondary">Abbrechen</a>
                     <!-- Button zum Erstellen des Termins – speichert Termin in der Datenbank -->
                     <button type="submit" class="btn btn-primary" id="termin-erstellen-submit">
                         Termin erstellen
@@ -185,8 +184,6 @@
     <footer class="footer">
         <p>&copy; 2025 Terminverwaltung. Alle Rechte vorbehalten.</p>
     </footer>
-
-    <script src="/javascript/termin-erstellen.js" defer></script>
 </body>
 </html>
 
